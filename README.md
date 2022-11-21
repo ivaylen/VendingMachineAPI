@@ -4,8 +4,7 @@ real-life vending machine. The project contains
 CRUD operations for the products (add, update,
 remove), insert a coin, reset and buy a product.
 The operations can be tested with the
-documented web service interface:
-http://localhost:8080/swagger-ui/.
+documented web service interface "Swagger".
 
 ## Requirements:
 For building and running the application you need:
