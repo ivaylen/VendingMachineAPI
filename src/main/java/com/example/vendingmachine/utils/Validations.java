@@ -3,6 +3,7 @@ package com.example.vendingmachine.utils;
 import com.example.vendingmachine.enumeration.ProductType;
 import com.example.vendingmachine.exception.BadRequestException;
 import com.example.vendingmachine.exception.CoinsNotFoundException;
+import com.example.vendingmachine.exception.ProductIdAlreadyExistsException;
 import com.example.vendingmachine.exception.ProductNotFoundException;
 import com.example.vendingmachine.model.OrderProduct;
 import com.example.vendingmachine.model.Product;
@@ -57,6 +58,14 @@ public class Validations {
         if (count != 1) {
             throw new ProductNotFoundException(
                     "Product with id " + id + " does not exists");
+        }
+    }
+
+    public static void validateIdExists(InventoryRepository inventoryRepository, Long id) {
+        long count = inventoryRepository.retrieveAll().stream().filter(e -> e.getId().equals(id)).count();
+        if (count > 0) {
+            throw new ProductIdAlreadyExistsException(
+                    "Product already exists");
         }
     }
 }

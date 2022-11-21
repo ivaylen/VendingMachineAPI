@@ -20,9 +20,9 @@ public class VendingMachineApplication {
 	@Bean
 	CommandLineRunner run(InventoryRepository inventoryRepository){
 		return args ->{
-			inventoryRepository.add(new Product(1L, "Coca", COCA_COLA, Coin.ONE_LV));
-			inventoryRepository.add(new Product(2L, "Sprite", SPRITE, Coin.TWO_LV));
-			inventoryRepository.add(new Product(3L, "Coffee", COFFEE, Coin.FIFTY_ST));
+			inventoryRepository.add(new Product(0L, "Coca", COCA_COLA, Coin.ONE_LV));
+			inventoryRepository.add(new Product(1L, "Sprite", SPRITE, Coin.TWO_LV));
+			inventoryRepository.add(new Product(2L, "Coffee", COFFEE, Coin.FIFTY_ST));
 		};
 	}
 }

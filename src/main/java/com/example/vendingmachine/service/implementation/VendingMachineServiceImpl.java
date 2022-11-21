@@ -27,6 +27,8 @@ public class VendingMachineServiceImpl implements VendingMachineService {
     }
 
     public Product saveProduct(Product product) {
+        // Validate ID
+        Validations.validateIdExists(inventoryRepository, product.getId());
         // Validation for Max 10 count for Product type
         Validations.validateAddProductCount(inventoryRepository, product.getType());
         return inventoryRepository.add(product);
